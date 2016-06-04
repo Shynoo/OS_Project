@@ -56,8 +56,16 @@ public class ClientController implements DeviceRotater{
 
     }
 
+    public int exit() throws IOException{
+        return  deReturn(client.writeAndRead("exit"));
+    }
+
     private int sendControl(String s) throws IOException{
         String[] ss=s.split(" ");
+        if (ss[0].contains("exit")){
+            exit();
+            return 0;
+        }
         if (ss.length!=2){
             return -5;
         }
@@ -88,6 +96,7 @@ public class ClientController implements DeviceRotater{
         if (ss[0].equals("up")){
             return upRotate(arc);
         }
+
         return -10;
     }
     public void service(){

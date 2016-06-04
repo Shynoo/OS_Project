@@ -47,7 +47,7 @@ public class ClientController implements DeviceRotater{
 
     @Override
     public int forwardRotate(String angle) throws IOException{
-        return deReturn(client.writeAndRead("b"+angle));
+        return deReturn(client.writeAndRead("f"+angle));
     }
 
     @Override

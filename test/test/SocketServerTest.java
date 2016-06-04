@@ -1,4 +1,4 @@
-package socket;
+package test;
 
 import java.io.*;
 import java.net.ServerSocket;
@@ -16,7 +16,14 @@ public class SocketServerTest implements Runnable{
     }
 
     public static void main(String[] args){
+        try{
+            SocketServerTest ss=new SocketServerTest();
 
+            ss.run();
+
+        } catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -59,4 +66,5 @@ public class SocketServerTest implements Runnable{
 
         }
     }
+
 }

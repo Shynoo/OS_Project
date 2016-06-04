@@ -12,7 +12,5 @@ public class SocketClientTest{
         SocketClient client=new SocketClient("127.0.0.1");
 
         System.out.println(client.writeAndRead("212"));
-
-
     }
 }

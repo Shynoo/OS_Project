@@ -26,33 +26,33 @@ public class ClientController implements DeviceRotater{
     }
 
     @Override
-    public int leftRotate(int angle) throws IOException{
-        return deReturn(client.writeAndRead("left,"+angle));
+    public int leftRotate(String angle) throws IOException{
+        return deReturn(client.writeAndRead("l"+angle));
     }
 
     @Override
-    public int rightRotate(int angle) throws IOException{
-        return leftRotate(-angle);
+    public int rightRotate(String angle) throws IOException{
+        return deReturn(client.writeAndRead("r"+angle));
     }
 
     @Override
-    public int upRotate(int angle) throws IOException{
-        return deReturn(client.writeAndRead("up,"+angle));
+    public int upRotate(String angle) throws IOException{
+        return deReturn(client.writeAndRead("u"+angle));
     }
 
     @Override
-    public int downRotate(int angle) throws IOException{
-        return upRotate(-angle);
+    public int downRotate(String angle) throws IOException{
+        return deReturn(client.writeAndRead("d"+angle));
     }
 
     @Override
-    public int forwardRotate(int angle) throws IOException{
-        return backRotate(angle);
+    public int forwardRotate(String angle) throws IOException{
+        return deReturn(client.writeAndRead("b"+angle));
     }
 
     @Override
-    public int backRotate(int angle) throws IOException{
-        return deReturn(client.writeAndRead("back,"+angle));
+    public int backRotate(String angle) throws IOException{
+        return deReturn(client.writeAndRead("b"+angle));
 
     }
 
@@ -61,23 +61,32 @@ public class ClientController implements DeviceRotater{
         if (ss.length!=2){
             return -5;
         }
+        int m=Integer.valueOf(ss[1]);
+        String arc;
+        if (m<=99){
+            arc="0"+m;
+        }
+        else {
+            arc=""+m;
+        }
+
         if (ss[0].equals("back")){
-            return backRotate(Integer.valueOf(ss[1]));
+            return backRotate(arc);
         }
         if (ss[0].equals("forward")){
-            return forwardRotate(Integer.valueOf(ss[1]));
+            return forwardRotate(arc);
         }
         if (ss[0].equals("left")){
-            return leftRotate(Integer.valueOf(ss[1]));
+            return leftRotate(arc);
         }
         if (ss[0].equals("right")){
-            return rightRotate(Integer.valueOf(ss[1]));
+            return rightRotate(arc);
         }
         if (ss[0].equals("down")){
-            return downRotate(Integer.valueOf(ss[1]));
+            return downRotate(arc);
         }
         if (ss[0].equals("up")){
-            return upRotate(Integer.valueOf(ss[1]));
+            return upRotate(arc);
         }
         return -10;
     }

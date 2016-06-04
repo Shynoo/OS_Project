@@ -38,7 +38,7 @@ public class ServerTest implements Runnable {
                 pw.flush();//调用 flush()方法刷新缓存
                 pw.close();
                 // 5.关闭所有资源
-//                socket.close();
+//                java.socket.close();
 //                ss.close();
             }
         }

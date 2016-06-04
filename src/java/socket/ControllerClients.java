@@ -19,7 +19,7 @@ public class ControllerClients {
             Socket s=new Socket(url,port);
             assert s!=null;
             socket.add(s);
-//            br.add(new BufferedReader(new InputStreamReader(socket.get(socket.size()-1).getInputStream())));
+//            br.add(new BufferedReader(new InputStreamReader(java.socket.get(java.socket.size()-1).getInputStream())));
         }
         catch(IOException ioe){
             ioe.printStackTrace();
@@ -64,7 +64,7 @@ public class ControllerClients {
             BufferedWriter bw = new BufferedWriter(osw);//创建缓冲流
             bw.write(bytes.toString());
             bw.flush();
-//            socket.get(0).shutdownOutput();// 关闭输出流
+//            java.socket.get(0).shutdownOutput();// 关闭输出流
         }
         catch (Exception e){
             e.printStackTrace();

@@ -11,7 +11,7 @@ public class ClientControllerTest{
     public static void main(String[] args){
         ClientController cc=new ClientController("127.0.0.1");
         try{
-            System.out.println(cc.downRotate(12));
+            System.out.println(cc.downRotate("12"));
 
         } catch (IOException e){
             e.printStackTrace();

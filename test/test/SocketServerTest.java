@@ -12,9 +12,8 @@ public class SocketServerTest implements Runnable{
     ServerSocket server;
 
     SocketServerTest() throws IOException{
-        server=new ServerSocket(5000);
+        server=new ServerSocket(PORT_);
     }
-
     public static void main(String[] args){
         try{
             SocketServerTest ss=new SocketServerTest();

@@ -81,23 +81,26 @@ public class ClientController implements DeviceRotater{
         if (ss[0].equals("back")){
             return backRotate(arc);
         }
-        if (ss[0].equals("forward")){
+        else if (ss[0].equals("forward")){
             return forwardRotate(arc);
         }
-        if (ss[0].equals("left")){
+        else if (ss[0].equals("left")){
             return leftRotate(arc);
         }
-        if (ss[0].equals("right")){
+        else if (ss[0].equals("right")){
             return rightRotate(arc);
         }
-        if (ss[0].equals("down")){
+        else if (ss[0].equals("down")){
             return downRotate(arc);
         }
-        if (ss[0].equals("up")){
+        else if (ss[0].equals("up")){
             return upRotate(arc);
         }
 
         return -10;
+    }
+    public String writeAndRead(String s) throws IOException{
+        return client.writeAndRead(s);
     }
     public void service(){
         Scanner in=new Scanner(System.in);
